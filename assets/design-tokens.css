@@ -1,0 +1,42 @@
+/* Plenna Tecnologia — Design Tokens v1.0 (2026-05-06) */
+/* Generated from docs/brand-guidelines.md — do not edit manually */
+
+:root {
+  /* Colors */
+  --color-blue:       #00AEEF;
+  --color-blue-dark:  #0090CC;
+  --color-navy:       #0A1628;
+  --color-navy-mid:   #0D1F3C;
+  --color-text:       #1A1A2E;
+  --color-text-light: #4A5568;
+  --color-bg:         #FFFFFF;
+  --color-bg-gray:    #F7F8FA;
+  --color-border:     #E2E8F0;
+  --color-white:      #FFFFFF;
+
+  /* Typography */
+  --font:             'Inter', 'Segoe UI', system-ui, sans-serif;
+  --font-size-base:   16px;
+  --line-height-body: 1.6;
+
+  /* Spacing */
+  --space-xs:  4px;
+  --space-sm:  8px;
+  --space-md:  16px;
+  --space-lg:  24px;
+  --space-xl:  32px;
+  --space-2xl: 48px;
+  --space-3xl: 80px;
+
+  /* Border Radius */
+  --radius:      4px;
+  --radius-none: 0px;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow:       0 2px 12px rgba(0,0,0,.08);
+  --shadow-hover: 0 8px 28px rgba(0,174,239,.15);
+
+  /* Transitions */
+  --transition: 200ms ease;
+}

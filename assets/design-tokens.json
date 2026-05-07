@@ -1,0 +1,48 @@
+{
+  "brand": {
+    "name": "Plenna Tecnologia",
+    "version": "1.0",
+    "updated": "2026-05-06"
+  },
+  "color": {
+    "blue": "#00AEEF",
+    "blue-dark": "#0090CC",
+    "navy": "#0A1628",
+    "navy-mid": "#0D1F3C",
+    "text": "#1A1A2E",
+    "text-light": "#4A5568",
+    "bg": "#FFFFFF",
+    "bg-gray": "#F7F8FA",
+    "border": "#E2E8F0",
+    "white": "#FFFFFF"
+  },
+  "typography": {
+    "font-family": "'Inter', 'Segoe UI', system-ui, sans-serif",
+    "font-size-base": "16px",
+    "line-height-body": "1.6",
+    "font-weight-regular": "400",
+    "font-weight-semibold": "600",
+    "font-weight-bold": "700"
+  },
+  "spacing": {
+    "xs": "4px",
+    "sm": "8px",
+    "md": "16px",
+    "lg": "24px",
+    "xl": "32px",
+    "2xl": "48px",
+    "3xl": "80px"
+  },
+  "radius": {
+    "default": "4px",
+    "none": "0px",
+    "full": "9999px"
+  },
+  "shadow": {
+    "default": "0 2px 12px rgba(0,0,0,.08)",
+    "hover": "0 8px 28px rgba(0,174,239,.15)"
+  },
+  "transition": {
+    "default": "200ms ease"
+  }
+}

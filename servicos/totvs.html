@@ -1,0 +1,438 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TOTVS — Protheus, RM & Fluig | Plenna Tecnologia</title>
+  <meta name="description" content="Implementação, consultoria e suporte especializado em Protheus, RM e Fluig. Integrações e desenvolvimento de APIs no ecossistema TOTVS." />
+  <link rel="icon" type="image/x-icon" href="../public/favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    /* Tabs for TOTVS subsections */
+    .tabs-nav {
+      display: flex;
+      gap: 0;
+      border-bottom: 2px solid var(--border);
+      margin-bottom: 56px;
+      overflow-x: auto;
+    }
+    .tab-btn {
+      padding: 14px 24px;
+      font-size: .9rem;
+      font-weight: 600;
+      color: var(--text-light);
+      border-bottom: 2px solid transparent;
+      margin-bottom: -2px;
+      transition: var(--transition);
+      white-space: nowrap;
+      cursor: pointer;
+    }
+    .tab-btn:hover { color: var(--blue); }
+    .tab-btn.active { color: var(--blue); border-bottom-color: var(--blue); }
+
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    /* Product pills */
+    .product-pills {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin: 24px 0;
+    }
+    .pill {
+      padding: 6px 16px;
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      font-size: .82rem;
+      font-weight: 600;
+      color: var(--text-light);
+      background: var(--white);
+      transition: var(--transition);
+    }
+    .pill.highlight { border-color: var(--blue); color: var(--blue); background: rgba(0,174,239,.06); }
+
+    /* Modules grid */
+    .modules-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-top: 32px;
+    }
+    .module-chip {
+      padding: 12px 16px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      font-size: .82rem;
+      font-weight: 500;
+      color: var(--text);
+      background: var(--white);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: var(--transition);
+    }
+    .module-chip:hover { border-color: var(--blue); color: var(--blue); }
+    .module-chip::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--blue);
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 768px) {
+      .modules-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 480px) {
+      .modules-grid { grid-template-columns: 1fr; }
+      .tab-btn { padding: 12px 16px; font-size: .82rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="container">
+    <div class="header-inner">
+      <a href="../index.html" class="logo">
+        <img src="../assets/plenna-header-svg-options/plenna-icon-plenna.svg" alt="Plenna Tecnologia" />
+      </a>
+      <nav class="main-nav">
+        <div class="nav-item">
+          <a href="#" class="nav-link active">
+            Serviços
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </a>
+          <div class="dropdown">
+            <a href="totvs.html">ERP TOTVS</a>
+            <a href="desenvolvimento.html">Desenvolvimento & APIs</a>
+            <a href="infraestrutura.html">Infraestrutura de Redes</a>
+            <a href="powerbi.html">Power BI & Analytics</a>
+            <a href="helpdesk.html">Helpdesk & Suporte</a>
+          </div>
+        </div>
+        <a href="../index.html#sobre" class="nav-link">Sobre</a>
+                <div class="nav-item">
+          <a href="../empresa.html" class="nav-link">
+            Empresa
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </a>
+          <div class="dropdown">
+            <a href="../empresa.html#sobre">Quem somos</a>
+            <a href="../empresa.html#metodologia">Metodologia</a>
+            <a href="../empresa.html#vagas">Trabalhe Conosco</a>
+          </div>
+        </div>
+        <a href="../index.html#depoimentos" class="nav-link">Clientes</a>
+                <a href="../index.html#contato" class="nav-link">Contato</a>
+        <div class="header-cta">
+          <a href="https://wa.me/5500000000000" target="_blank" rel="noopener" class="btn btn-primary">Fale Conosco</a>
+        </div>
+      </nav>
+      <div class="header-actions">
+        <a href="https://wa.me/5500000000000" target="_blank" rel="noopener" class="btn btn-primary desktop-cta">Fale Conosco</a>
+        <button class="nav-toggle" aria-label="Abrir menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="container">
+    <div class="page-hero-label">Especialista TOTVS</div>
+    <h1>Protheus, RM & Fluig — <br>do zero ao suporte contínuo</h1>
+    <p class="hero-sub">Implementamos, customizamos e sustentamos o ecossistema TOTVS completo. Da análise de processos ao go-live, com equipe técnica especializada e visão de negócio.</p>
+    <div class="page-hero-actions">
+      <a href="../index.html#contato" class="btn btn-primary">Fale com um especialista TOTVS</a>
+      <a href="#solucoes" class="btn btn-outline" style="border-color:rgba(255,255,255,.3);color:rgba(255,255,255,.8);">Ver soluções</a>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCT TABS -->
+<section class="content-section" id="solucoes">
+  <div class="container">
+    <span class="section-label">Nossas soluções</span>
+    <h2 class="section-title" style="margin-bottom:12px;">Especialidade em todo o ecossistema TOTVS</h2>
+    <p style="max-width:560px;margin-bottom:40px;">Atuamos com profundidade nos três principais produtos TOTVS, além de integrações e desenvolvimento no ambiente ERP.</p>
+
+    <div class="tabs-nav" role="tablist">
+      <button class="tab-btn active" role="tab" data-tab="protheus">Protheus</button>
+      <button class="tab-btn" role="tab" data-tab="rm">RM</button>
+      <button class="tab-btn" role="tab" data-tab="fluig">Fluig</button>
+      <button class="tab-btn" role="tab" data-tab="integracoes">Integrações & APIs</button>
+    </div>
+
+    <!-- PROTHEUS -->
+    <div class="tab-panel active" id="tab-protheus">
+      <div class="two-col">
+        <div>
+          <div class="product-pills">
+            <span class="pill highlight">Protheus</span>
+            <span class="pill">Advpl</span>
+            <span class="pill">TLPP</span>
+            <span class="pill">MVC</span>
+            <span class="pill">REST API</span>
+          </div>
+          <h2 style="margin-bottom:16px;">TOTVS Protheus</h2>
+          <p style="margin-bottom:20px;">O ERP mais utilizado no Brasil. Dominamos sua implementação, parametrização, customização e suporte técnico avançado com profundidade em Advpl e TLPP.</p>
+          <p>Atuamos em projetos greenfield (implantações do zero), migrações de versão e rollouts multi-filial, com metodologia comprovada e time com anos de campo.</p>
+
+          <div class="modules-grid" style="margin-top:28px;">
+            <span class="module-chip">Financeiro</span>
+            <span class="module-chip">Contabilidade</span>
+            <span class="module-chip">Estoque / WMS</span>
+            <span class="module-chip">Compras</span>
+            <span class="module-chip">Vendas / CRM</span>
+            <span class="module-chip">Fiscal / SPED</span>
+            <span class="module-chip">Manufatura</span>
+            <span class="module-chip">RH / Folha</span>
+          </div>
+        </div>
+        <div class="col-img">Imagem — tela Protheus ou equipe</div>
+      </div>
+    </div>
+
+    <!-- RM -->
+    <div class="tab-panel" id="tab-rm">
+      <div class="two-col">
+        <div>
+          <div class="product-pills">
+            <span class="pill highlight">TOTVS RM</span>
+            <span class="pill">Corpore RM</span>
+            <span class="pill">Gestão de Pessoas</span>
+            <span class="pill">Educacional</span>
+          </div>
+          <h2 style="margin-bottom:16px;">TOTVS RM</h2>
+          <p style="margin-bottom:20px;">Plataforma robusta para gestão educacional, de pessoas e financeira. Implementamos o RM com atenção às particularidades de cada segmento.</p>
+          <p>Nossa equipe tem experiência nos módulos de RH, Folha de Pagamento, Gestão Educacional e Financeiro, garantindo uma implantação aderente aos processos do cliente.</p>
+
+          <div class="modules-grid" style="margin-top:28px;">
+            <span class="module-chip">Gestão de Pessoas</span>
+            <span class="module-chip">Folha de Pagamento</span>
+            <span class="module-chip">Ponto Eletrônico</span>
+            <span class="module-chip">Recrutamento</span>
+            <span class="module-chip">Financeiro</span>
+            <span class="module-chip">Contabilidade</span>
+            <span class="module-chip">Gestão Educacional</span>
+            <span class="module-chip">Portal do Aluno</span>
+          </div>
+        </div>
+        <div class="col-img">Imagem — tela RM ou consultoria em sala</div>
+      </div>
+    </div>
+
+    <!-- FLUIG -->
+    <div class="tab-panel" id="tab-fluig">
+      <div class="two-col">
+        <div>
+          <div class="product-pills">
+            <span class="pill highlight">Fluig</span>
+            <span class="pill">BPM</span>
+            <span class="pill">ECM</span>
+            <span class="pill">Workflow</span>
+            <span class="pill">Portal</span>
+          </div>
+          <h2 style="margin-bottom:16px;">TOTVS Fluig</h2>
+          <p style="margin-bottom:20px;">Plataforma de gestão de processos, documentos e portais corporativos. Automatize aprovações, gerencie documentos e centralize a comunicação interna.</p>
+          <p>Criamos workflows personalizados, portais de RH e formulários eletrônicos que substituem processos manuais e aumentam a eficiência operacional.</p>
+
+          <div class="modules-grid" style="margin-top:28px;">
+            <span class="module-chip">BPM / Workflow</span>
+            <span class="module-chip">ECM / GED</span>
+            <span class="module-chip">Portal Corporativo</span>
+            <span class="module-chip">Formulários</span>
+            <span class="module-chip">Aprovação Eletrônica</span>
+            <span class="module-chip">Integração TOTVS</span>
+          </div>
+        </div>
+        <div class="col-img">Imagem — tela Fluig ou automação</div>
+      </div>
+    </div>
+
+    <!-- INTEGRAÇÕES -->
+    <div class="tab-panel" id="tab-integracoes">
+      <div class="two-col">
+        <div>
+          <div class="product-pills">
+            <span class="pill highlight">REST API</span>
+            <span class="pill">SOAP</span>
+            <span class="pill">ETL</span>
+            <span class="pill">Middleware</span>
+            <span class="pill">Webhook</span>
+          </div>
+          <h2 style="margin-bottom:16px;">Integrações & APIs TOTVS</h2>
+          <p style="margin-bottom:20px;">Conectamos o TOTVS com qualquer sistema: e-commerce, CRM, marketplace, sistema legado ou API de terceiros. Dados fluindo sem intervenção manual.</p>
+          <p>Utilizamos as APIs nativas do Protheus/RM, desenvolvemos conectores Advpl/TLPP e orquestramos fluxos de dados com robustez e monitoramento.</p>
+
+          <div class="features-list">
+            <div class="feature-item">
+              <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              <div>
+                <h4>Integração com e-commerce</h4>
+                <p>Pedidos, estoque e preços sincronizados em tempo real com Protheus.</p>
+              </div>
+            </div>
+            <div class="feature-item">
+              <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              <div>
+                <h4>APIs REST personalizadas</h4>
+                <p>Exposição de dados do ERP para aplicativos móveis e portais web.</p>
+              </div>
+            </div>
+            <div class="feature-item">
+              <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              <div>
+                <h4>ETL e migração de dados</h4>
+                <p>Importação, transformação e carga de dados legados com integridade.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-img">Imagem — diagrama de integração ou código</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THREE PILLARS -->
+<section class="content-section gray">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:56px;" class="fade-in">
+      <span class="section-label">Como atuamos</span>
+      <h2 class="section-title">Implementação. Consultoria. Suporte.</h2>
+      <p style="max-width:520px;margin:0 auto;">Três pilares de entrega que cobrem todo o ciclo de vida do seu ERP TOTVS.</p>
+    </div>
+
+    <div class="cards-grid">
+      <div class="info-card fade-in">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+        </svg>
+        <h3>Implementação</h3>
+        <p>Análise de processos, parametrização completa, migração de dados e go-live acompanhado. Do zero à produção com metodologia estruturada e sem surpresas.</p>
+      </div>
+
+      <div class="info-card fade-in fade-in-delay-1">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <circle cx="12" cy="12" r="10"/>
+          <line x1="12" y1="8" x2="12" y2="12"/>
+          <line x1="12" y1="16" x2="12.01" y2="16"/>
+        </svg>
+        <h3>Consultoria</h3>
+        <p>Diagnóstico do uso atual, identificação de gaps e oportunidades de melhoria. Ajudamos sua empresa a extrair mais valor do TOTVS que você já tem.</p>
+      </div>
+
+      <div class="info-card fade-in fade-in-delay-2">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.41 2 2 0 0 1 3.6 1.24h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.92a16 16 0 0 0 6 6l.97-.97a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+        </svg>
+        <h3>Suporte Contínuo</h3>
+        <p>Atendimento técnico especializado pós-go-live: correção de bugs, dúvidas de uso, atualizações de versão e evolução do sistema conforme a empresa cresce.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item fade-in">
+        <span class="stat-number" data-counter data-target="80" data-suffix="+">0</span>
+        <p class="stat-desc">Implantações TOTVS realizadas</p>
+      </div>
+      <div class="stat-item fade-in fade-in-delay-1">
+        <span class="stat-number" data-counter data-target="3">0</span>
+        <p class="stat-desc">Produtos TOTVS dominados</p>
+      </div>
+      <div class="stat-item fade-in fade-in-delay-2">
+        <span class="stat-number" data-counter data-target="15" data-suffix="+">0</span>
+        <p class="stat-desc">Anos de experiência com ERP</p>
+      </div>
+      <div class="stat-item fade-in fade-in-delay-3">
+        <span class="stat-number" data-counter data-target="100" data-suffix="%">0</span>
+        <p class="stat-desc">Projetos entregues com suporte</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-band">
+  <div class="container">
+    <div class="cta-inner">
+      <div>
+        <h2>Tem um projeto TOTVS?</h2>
+        <p>Conte para a nossa equipe o que você precisa. A consulta é gratuita.</p>
+      </div>
+      <a href="https://wa.me/5500000000000" target="_blank" rel="noopener" class="btn btn-white">Falar com especialista TOTVS</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="../assets/plenna-header-svg-options/plenna-icon-plenna.svg" alt="Plenna Tecnologia" />
+        <p>Soluções completas de TI para empresas que precisam de tecnologia confiável e suporte especializado.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Serviços</h4>
+        <a href="totvs.html">TOTVS — Protheus, RM, Fluig</a>
+        <a href="desenvolvimento.html">Desenvolvimento & APIs</a>
+        <a href="infraestrutura.html">Infraestrutura de Redes</a>
+        <a href="powerbi.html">Power BI & Analytics</a>
+        <a href="helpdesk.html">Helpdesk & Suporte</a>
+      </div>
+      <div class="footer-col">
+        <h4>Empresa</h4>
+        <a href="../index.html#sobre">Sobre a Plenna</a>
+        <a href="../index.html#depoimentos">Clientes</a>
+        <a href="../index.html#contato">Contato</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contato</h4>
+        <a href="mailto:contato@plenna.com.br">contato@plenna.com.br</a>
+        <a href="tel:+5500000000000">+55 (00) 0000-0000</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Plenna Tecnologia Ltda. Todos os direitos reservados.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+<script>
+  /* Tabs logic */
+  const tabBtns   = document.querySelectorAll('.tab-btn');
+  const tabPanels = document.querySelectorAll('.tab-panel');
+
+  tabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const target = btn.dataset.tab;
+
+      tabBtns.forEach(b => b.classList.remove('active'));
+      tabPanels.forEach(p => p.classList.remove('active'));
+
+      btn.classList.add('active');
+      document.getElementById('tab-' + target).classList.add('active');
+    });
+  });
+</script>
+</body>
+</html>
+
+

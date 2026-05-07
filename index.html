@@ -1,0 +1,765 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Plenna Tecnologia — Soluções de TI para Empresas</title>
+  <meta name="description" content="Consultoria, implementação e suporte TOTVS, desenvolvimento de sistemas, infraestrutura, Power BI e helpdesk. Soluções de TI completas para o seu negócio." />
+  <link rel="icon" type="image/x-icon" href="public/favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<!-- ============================================================
+     HEADER
+============================================================ -->
+<header class="site-header">
+  <div class="container">
+    <div class="header-inner">
+      <a href="index.html" class="logo" aria-label="Plenna Tecnologia">
+        <img src="assets/plenna-header-svg-options/plenna-icon-plenna.svg" alt="Plenna Tecnologia" />
+      </a>
+
+      <nav class="main-nav" aria-label="Navegação principal">
+        <div class="nav-item">
+          <a href="#servicos" class="nav-link">
+            Serviços
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </a>
+          <div class="dropdown">
+            <a href="servicos/desenvolvimento.html">Desenvolvimento Web</a>
+            <a href="servicos/infraestrutura.html">Infraestrutura de Redes</a>
+            <a href="servicos/powerbi.html">Power BI & Analytics</a>
+            <a href="servicos/helpdesk.html">Helpdesk & Suporte</a>
+            <a href="servicos/ia.html">Inteligência Artificial</a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="servicos/totvs.html" class="nav-link">
+            TOTVS
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </a>
+          <div class="dropdown">
+            <a href="servicos/totvs.html#protheus">Protheus</a>
+            <a href="servicos/totvs.html#rm">RM</a>
+            <a href="servicos/totvs.html#fluig">Fluig</a>
+            <a href="servicos/totvs.html#advpl">ADVPL & Customizações</a>
+            <a href="servicos/totvs.html#integracoes">Integrações TOTVS</a>
+          </div>
+        </div>
+        <a href="#depoimentos" class="nav-link">Referências</a>
+        <a href="#sobre" class="nav-link">Quem somos</a>
+        <!-- mobile-only CTA inside nav -->
+        <div class="header-cta">
+          <a href="https://wa.me/5500000000000" target="_blank" rel="noopener" class="btn btn-primary">Fale Conosco</a>
+        </div>
+      </nav>
+
+      <!-- 3rd column: CTA on desktop, toggle on mobile -->
+      <div class="header-actions">
+        <a href="https://wa.me/5500000000000" target="_blank" rel="noopener" class="btn btn-primary desktop-cta">Fale Conosco</a>
+        <button class="nav-toggle" aria-label="Abrir menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ============================================================
+     HERO
+============================================================ -->
+<section class="hero" id="inicio">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-content">
+        <h1>Tecnologia que sustenta negócios.<br>Para empresas que não param.</h1>
+      </div>
+      <div class="hero-visual"></div>
+    </div>
+
+    <div class="hero-typewriter-inline">
+      <span class="hero-typewriter-intro">A sua consultoria de confiança — criando soluções inovadoras com</span>
+      <div class="hero-typewriter-big">
+        <span class="typewriter-prompt">&gt;</span><span class="typewriter-wrap"><span id="typewriter"></span><span class="typewriter-cursor">|</span></span>
+      </div>
+      <div class="hero-service-pills">
+        <a href="#servicos" class="hero-pill" data-service="totvs">ERP TOTVS</a>
+        <a href="#servicos" class="hero-pill" data-service="desenvolvimento">Desenvolvimento Web</a>
+        <a href="#servicos" class="hero-pill" data-service="infraestrutura">Infraestrutura de Redes</a>
+        <a href="#servicos" class="hero-pill" data-service="powerbi">Power BI & Analytics</a>
+        <a href="#servicos" class="hero-pill" data-service="helpdesk">Helpdesk & Suporte</a>
+        <a href="#servicos" class="hero-pill" data-service="ia">Inteligência Artificial</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     SERVICES — Interactive
+============================================================ -->
+<section class="services" id="servicos">
+  <div class="container">
+    <div class="services-layout">
+
+      <!-- Coluna esquerda: header + lista -->
+      <div class="services-left">
+        <div class="services-header">
+          <span class="section-label">O que fazemos</span>
+          <h2 class="section-title">Soluções completas de TI</h2>
+          <p class="section-sub">Atendemos empresas que precisam de tecnologia confiável, do ERP à infraestrutura.</p>
+        </div>
+
+        <ul class="services-list">
+          <li class="services-list-item active" data-service="totvs">
+            <span>ERP TOTVS</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+          </li>
+          <li class="services-list-item" data-service="desenvolvimento">
+            <span>Desenvolvimento Web</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+          </li>
+          <li class="services-list-item" data-service="infraestrutura">
+            <span>Infraestrutura de Redes</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+          </li>
+          <li class="services-list-item" data-service="powerbi">
+            <span>Power BI & Analytics</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+          </li>
+          <li class="services-list-item" data-service="helpdesk">
+            <span>Helpdesk & Suporte</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+          </li>
+          <li class="services-list-item" data-service="ia">
+            <span>Inteligência Artificial</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Coluna direita: imagem pequena no topo + painel de texto embaixo -->
+      <div class="services-right">
+        <div class="services-right-img">
+          <img class="services-img-item active" data-service="totvs"        src="images/servico-totvs.png"          alt="ERP TOTVS" />
+          <img class="services-img-item"        data-service="desenvolvimento" src="images/servico-desenvolvimento.png" alt="Desenvolvimento Web" />
+          <img class="services-img-item"        data-service="infraestrutura"  src="images/servico-infraestrutura.png" alt="Infraestrutura de Redes" />
+          <img class="services-img-item"        data-service="powerbi"         src="images/servico-powerbi.png"        alt="Power BI & Analytics" />
+          <img class="services-img-item"        data-service="helpdesk"        src="images/servico-helpdesk.png"       alt="Helpdesk & Suporte" />
+          <img class="services-img-item"        data-service="ia"              src="images/servico-ia.png"             alt="Inteligência Artificial" />
+        </div>
+
+        <div class="services-panel">
+          <div class="services-panel-item active" data-service="totvs">
+            <h3>ERP TOTVS <a href="servicos/totvs.html">Ver mais ↗</a></h3>
+            <p>Somos especialistas no ecossistema TOTVS — Protheus, RM e Fluig. Atuamos em todas as fases: levantamento de requisitos, implementação, parametrização, treinamento e suporte contínuo.</p>
+            <p>Desenvolvemos customizações em ADVPL e integramos o TOTVS com sistemas externos via APIs e conectores, garantindo que seu ERP trabalhe de forma conectada com toda a operação.</p>
+            <div class="services-panel-tags">
+              <span class="services-panel-tags-label">Serviços incluídos</span>
+              <ul><li>Protheus</li><li>RM</li><li>Fluig</li><li>ADVPL</li><li>Integrações</li><li>Parametrização</li><li>Treinamento</li><li>Suporte pós-implantação</li></ul>
+            </div>
+          </div>
+
+          <div class="services-panel-item" data-service="desenvolvimento">
+            <h3>Desenvolvimento Web <a href="servicos/desenvolvimento.html">Ver mais ↗</a></h3>
+            <p>Criamos sites institucionais, portais, sistemas internos e aplicações sob medida. Cada projeto é pensado para resolver um problema real — sem código desnecessário, sem prazo alongado.</p>
+            <p>Também desenvolvemos APIs REST e automações que conectam plataformas diferentes, eliminando processos manuais e retrabalho do seu time.</p>
+            <div class="services-panel-tags">
+              <span class="services-panel-tags-label">Serviços incluídos</span>
+              <ul><li>Sites institucionais</li><li>Sistemas web</li><li>APIs REST</li><li>Automações</li><li>Integrações entre plataformas</li><li>Node.js</li><li>Python</li><li>React</li></ul>
+            </div>
+          </div>
+
+          <div class="services-panel-item" data-service="infraestrutura">
+            <h3>Infraestrutura de Redes <a href="servicos/infraestrutura.html">Ver mais ↗</a></h3>
+            <p>Projetamos e implantamos redes corporativas seguras e escaláveis — do cabeamento estruturado ao firewall e à virtualização de servidores. Sua operação não pode parar, e a infraestrutura precisa acompanhar o crescimento.</p>
+            <p>Oferecemos monitoramento contínuo, gestão de ativos e suporte preventivo para antecipar falhas antes que virem problema.</p>
+            <div class="services-panel-tags">
+              <span class="services-panel-tags-label">Serviços incluídos</span>
+              <ul><li>Redes LAN / WAN</li><li>Firewall & segurança</li><li>Servidores</li><li>Virtualização</li><li>VPN</li><li>Monitoramento 24h</li><li>Cabeamento estruturado</li><li>Backup corporativo</li></ul>
+            </div>
+          </div>
+
+          <div class="services-panel-item" data-service="powerbi">
+            <h3>Power BI & Analytics <a href="servicos/powerbi.html">Ver mais ↗</a></h3>
+            <p>Transformamos dados dispersos em dashboards claros e acionáveis. Conectamos suas fontes — ERP, planilhas, bancos de dados e APIs — e construímos relatórios que respondem às perguntas certas para cada área do negócio.</p>
+            <p>Com modelagem de dados e DAX avançado, entregamos indicadores confiáveis que embasam decisões rápidas e bem fundamentadas.</p>
+            <div class="services-panel-tags">
+              <span class="services-panel-tags-label">Serviços incluídos</span>
+              <ul><li>Dashboards interativos</li><li>Modelagem de dados</li><li>DAX avançado</li><li>ETL & Power Query</li><li>KPIs e metas</li><li>Relatórios gerenciais</li><li>Integração com TOTVS</li><li>Treinamento em Power BI</li></ul>
+            </div>
+          </div>
+
+          <div class="services-panel-item" data-service="helpdesk">
+            <h3>Helpdesk & Suporte <a href="servicos/helpdesk.html">Ver mais ↗</a></h3>
+            <p>Atendimento técnico ágil por chamado, remoto ou presencial — com SLA definido e equipe especializada que resolve sem burocracia. Nada de filas intermináveis ou scripts genéricos.</p>
+            <p>Gerenciamos todo o ciclo do chamado, desde o registro até a solução, com relatórios periódicos de desempenho e foco em reduzir o tempo de inatividade da sua equipe.</p>
+            <div class="services-panel-tags">
+              <span class="services-panel-tags-label">Serviços incluídos</span>
+              <ul><li>Suporte remoto</li><li>Atendimento presencial</li><li>SLA contratual</li><li>Gestão de chamados</li><li>N1 / N2 / N3</li><li>Relatórios de SLA</li><li>Manutenção preventiva</li><li>Gestão de ativos de TI</li></ul>
+            </div>
+          </div>
+
+          <div class="services-panel-item" data-service="ia">
+            <h3>Inteligência Artificial <a href="servicos/ia.html">Ver mais ↗</a></h3>
+            <p>Aplicamos IA de forma prática no seu negócio: chatbots para atendimento, automação de tarefas repetitivas, análise preditiva de dados e integração com modelos de linguagem como GPT e Claude.</p>
+            <p>Não vendemos tecnologia por tecnologia — identificamos onde a IA gera ganho real de produtividade e implementamos com foco em resultado mensurável.</p>
+            <div class="services-panel-tags">
+              <span class="services-panel-tags-label">Serviços incluídos</span>
+              <ul><li>Chatbots inteligentes</li><li>Integração com LLMs</li><li>Automação de processos</li><li>Análise preditiva</li><li>Processamento de documentos</li><li>IA aplicada ao TOTVS</li><li>Treinamento de modelos</li><li>Consultoria em IA</li></ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     STATS / NUMBERS
+============================================================ -->
+<section class="stats" id="numeros">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item fade-in">
+        <span
+          class="stat-number"
+          data-counter
+          data-target="150"
+          data-suffix="+"
+        >0</span>
+        <p class="stat-desc">Projetos entregues</p>
+      </div>
+      <div class="stat-item fade-in fade-in-delay-1">
+        <span
+          class="stat-number"
+          data-counter
+          data-target="60"
+          data-suffix="+"
+        >0</span>
+        <p class="stat-desc">Clientes atendidos</p>
+      </div>
+      <div class="stat-item fade-in fade-in-delay-2">
+        <span
+          class="stat-number"
+          data-counter
+          data-target="8"
+          data-suffix="+"
+        >0</span>
+        <p class="stat-desc">Anos de experiência</p>
+      </div>
+      <div class="stat-item fade-in fade-in-delay-3">
+        <span
+          class="stat-number"
+          data-counter
+          data-target="98"
+          data-suffix="%"
+        >0</span>
+        <p class="stat-desc">Taxa de satisfação</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     ABOUT
+============================================================ -->
+<section class="about" id="sobre">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-slideshow">
+        <div class="about-slide active">
+          <img src="images/fachada-plenna-IA.png" alt="Escritório Plenna Tecnologia" loading="lazy" />
+        </div>
+        <div class="about-slide">
+          <img src="images/funcionarios-plenna-IA.png" alt="Equipe Plenna" loading="lazy" />
+        </div>
+        <div class="about-slide">
+          <img src="images/funcionarios-plenna-IA-2.png" alt="Time Plenna" loading="lazy" />
+        </div>
+        <div class="about-slide-dots">
+          <span class="about-dot active"></span>
+          <span class="about-dot"></span>
+          <span class="about-dot"></span>
+        </div>
+      </div>
+      <div class="about-content fade-in">
+        <span class="section-label">Quem somos</span>
+        <h2 class="section-title">Uma equipe técnica que entende o seu negócio</h2>
+        <p>A Plenna Tecnologia nasceu para resolver os problemas reais de TI que travam o crescimento das empresas. Não terceirizamos conhecimento — nossa equipe é especialista e comprometida com resultado.</p>
+
+        <div class="about-points">
+          <div class="about-point">
+            <svg class="point-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            <div>
+              <h4>Especialistas em TOTVS</h4>
+              <p>Protheus, RM e Fluig com profundidade real em implementação, suporte, manutenção e customização.</p>
+            </div>
+          </div>
+          <div class="about-point">
+            <svg class="point-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            <div>
+              <h4>Atendimento ágil e direto</h4>
+              <p>Sem filas, sem burocracia. Você fala com quem resolve.</p>
+            </div>
+          </div>
+          <div class="about-point">
+            <svg class="point-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            <div>
+              <h4>Visão de negócio, não só de sistema</h4>
+              <p>Entendemos o processo antes de propor a solução técnica.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     VALUE PILLARS STRIP
+============================================================ -->
+<div class="pillars-band">
+  <div class="container">
+    <div class="pillars-grid">
+      <div class="pillar-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        <span>Aceleramos processos</span>
+      </div>
+      <div class="pillar-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <span>Automatizamos rotinas</span>
+      </div>
+      <div class="pillar-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>
+        <span>Integramos sistemas</span>
+      </div>
+      <div class="pillar-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/><line x1="2" y1="20" x2="22" y2="20"/></svg>
+        <span>Transformamos dados em decisões</span>
+      </div>
+      <div class="pillar-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.41 2 2 0 0 1 3.6 1.24h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.92a16 16 0 0 0 6 6l.97-.97a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <span>Suporte que não abandona</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     TESTIMONIALS
+============================================================ -->
+<section class="testimonials">
+  <div class="container">
+    <div class="testimonials-header fade-in">
+      <span class="section-label">Depoimentos</span>
+      <h2 class="section-title">O que dizem nossos clientes</h2>
+      <p class="section-sub">Resultados reais de empresas que confiam na Plenna.</p>
+    </div>
+  </div>
+
+  <div class="testimonials-marquee" id="depoimentos">
+    <div class="testimonials-track" aria-hidden="true">
+
+      <!-- original set -->
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"A equipe da Plenna resolveu em dias um problema que travava nosso Protheus há meses. Conhecimento técnico impressionante."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">CM</div>
+          <div>
+            <div class="author-name">Carlos Mendes</div>
+            <div class="author-role">Gerente de TI — Indústria Metalúrgica</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"Os dashboards do Power BI que eles entregaram mudaram a forma como a diretoria toma decisões. Simples, rápido e preciso."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">AF</div>
+          <div>
+            <div class="author-name">Ana Figueiredo</div>
+            <div class="author-role">Diretora Financeira — Rede de Varejo</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"Nossa rede estava instável há anos. Após o projeto de infraestrutura com a Plenna, zero quedas em 8 meses."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">RS</div>
+          <div>
+            <div class="author-name">Rafael Santos</div>
+            <div class="author-role">TI — Construtora Regional</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"Implementaram o RM do zero, treinaram a equipe e ainda ficaram de suporte pós-go-live. Profissionalismo de ponta."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">JC</div>
+          <div>
+            <div class="author-name">Juliana Costa</div>
+            <div class="author-role">RH — Grupo Educacional</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"O helpdesk deles resolve rápido e sem enrolação. Nossas equipes não ficam paradas esperando chamado."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">PM</div>
+          <div>
+            <div class="author-name">Pedro Marinho</div>
+            <div class="author-role">COO — Distribuidora Logística</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"A integração entre o Protheus e nosso e-commerce foi entregue no prazo, funcionando perfeitamente. Equipe muito competente."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">TL</div>
+          <div>
+            <div class="author-name">Thiago Lima</div>
+            <div class="author-role">CTO — Startup de Comércio</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- duplicate set — required for seamless -50% loop -->
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"A equipe da Plenna resolveu em dias um problema que travava nosso Protheus há meses. Conhecimento técnico impressionante."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">CM</div>
+          <div>
+            <div class="author-name">Carlos Mendes</div>
+            <div class="author-role">Gerente de TI — Indústria Metalúrgica</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"Os dashboards do Power BI que eles entregaram mudaram a forma como a diretoria toma decisões. Simples, rápido e preciso."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">AF</div>
+          <div>
+            <div class="author-name">Ana Figueiredo</div>
+            <div class="author-role">Diretora Financeira — Rede de Varejo</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"Nossa rede estava instável há anos. Após o projeto de infraestrutura com a Plenna, zero quedas em 8 meses."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">RS</div>
+          <div>
+            <div class="author-name">Rafael Santos</div>
+            <div class="author-role">TI — Construtora Regional</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"Implementaram o RM do zero, treinaram a equipe e ainda ficaram de suporte pós-go-live. Profissionalismo de ponta."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">JC</div>
+          <div>
+            <div class="author-name">Juliana Costa</div>
+            <div class="author-role">RH — Grupo Educacional</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"O helpdesk deles resolve rápido e sem enrolação. Nossas equipes não ficam paradas esperando chamado."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">PM</div>
+          <div>
+            <div class="author-name">Pedro Marinho</div>
+            <div class="author-role">COO — Distribuidora Logística</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"A integração entre o Protheus e nosso e-commerce foi entregue no prazo, funcionando perfeitamente. Equipe muito competente."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">TL</div>
+          <div>
+            <div class="author-name">Thiago Lima</div>
+            <div class="author-role">CTO — Startup de Comércio</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Logos de clientes -->
+  <div class="clients-logos" id="clientes">
+    <div class="container">
+      <p class="clients-label">Empresas que confiam na Plenna</p>
+      <div class="clients-grid">
+
+        <!-- Metalúrgica Nordeste -->
+        <div class="client-logo-item">
+          <svg viewBox="0 0 160 56" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Metalúrgica Nordeste">
+            <rect x="0" y="20" width="32" height="32" rx="2" fill="#2D3748"/>
+            <rect x="6" y="26" width="20" height="20" rx="1" fill="#4A5568"/>
+            <rect x="10" y="30" width="12" height="12" fill="#718096"/>
+            <text x="40" y="40" font-family="Inter,sans-serif" font-size="13" font-weight="700" fill="#2D3748">METALÚRGICA</text>
+            <text x="40" y="54" font-family="Inter,sans-serif" font-size="10" font-weight="500" fill="#4A5568" letter-spacing=".08em">NORDESTE</text>
+          </svg>
+        </div>
+
+        <!-- Grupo Vitória -->
+        <div class="client-logo-item">
+          <svg viewBox="0 0 140 56" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Grupo Vitória">
+            <polygon points="16,8 28,28 4,28" fill="#4A5568"/>
+            <polygon points="16,18 24,32 8,32" fill="#2D3748"/>
+            <text x="38" y="34" font-family="Inter,sans-serif" font-size="15" font-weight="800" fill="#2D3748" letter-spacing="-.02em">GRUPO</text>
+            <text x="38" y="50" font-family="Inter,sans-serif" font-size="13" font-weight="500" fill="#4A5568" letter-spacing=".06em">VITÓRIA</text>
+          </svg>
+        </div>
+
+        <!-- Logística SR -->
+        <div class="client-logo-item">
+          <svg viewBox="0 0 150 56" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Logística SR">
+            <rect x="2" y="24" width="30" height="16" rx="2" fill="#4A5568"/>
+            <rect x="18" y="30" width="18" height="10" rx="1" fill="#2D3748"/>
+            <circle cx="8" cy="42" r="5" fill="#2D3748"/>
+            <circle cx="28" cy="42" r="5" fill="#2D3748"/>
+            <text x="40" y="38" font-family="Inter,sans-serif" font-size="14" font-weight="700" fill="#2D3748" letter-spacing=".04em">LOGÍSTICA SR</text>
+          </svg>
+        </div>
+
+        <!-- Construtora Alves -->
+        <div class="client-logo-item">
+          <svg viewBox="0 0 160 56" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Construtora Alves">
+            <rect x="4" y="12" width="8" height="36" fill="#2D3748"/>
+            <rect x="14" y="20" width="8" height="28" fill="#4A5568"/>
+            <rect x="24" y="28" width="8" height="20" fill="#718096"/>
+            <text x="42" y="36" font-family="Inter,sans-serif" font-size="12" font-weight="700" fill="#2D3748">CONSTRUTORA</text>
+            <text x="42" y="50" font-family="Inter,sans-serif" font-size="13" font-weight="600" fill="#2D3748" letter-spacing=".04em">ALVES</text>
+          </svg>
+        </div>
+
+        <!-- Rede FarmaPlus -->
+        <div class="client-logo-item">
+          <svg viewBox="0 0 160 56" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="FarmaPlus">
+            <rect x="10" y="10" width="22" height="4" rx="2" fill="#2D3748"/>
+            <rect x="19" y="6" width="4" height="30" rx="2" fill="#2D3748"/>
+            <circle cx="21" cy="25" r="14" stroke="#4A5568" stroke-width="2" fill="none"/>
+            <text x="42" y="34" font-family="Inter,sans-serif" font-size="15" font-weight="800" fill="#2D3748">FARMA<tspan font-weight="400" fill="#4A5568">PLUS</tspan></text>
+          </svg>
+        </div>
+
+        <!-- Distribuidora Centra -->
+        <div class="client-logo-item">
+          <svg viewBox="0 0 170 56" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Distribuidora Centra">
+            <circle cx="20" cy="28" r="16" stroke="#4A5568" stroke-width="2.5"/>
+            <circle cx="20" cy="28" r="8" fill="#2D3748"/>
+            <text x="44" y="36" font-family="Inter,sans-serif" font-size="12" font-weight="700" fill="#2D3748" letter-spacing=".02em">DISTRIBUIDORA</text>
+            <text x="44" y="50" font-family="Inter,sans-serif" font-size="12" font-weight="500" fill="#4A5568" letter-spacing=".06em">CENTRA</text>
+          </svg>
+        </div>
+
+        <!-- Educação Avançar -->
+        <div class="client-logo-item">
+          <svg viewBox="0 0 160 56" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Educação Avançar">
+            <path d="M4 32 L22 16 L40 32" stroke="#4A5568" stroke-width="2.5" fill="none"/>
+            <rect x="12" y="32" width="20" height="16" rx="1" fill="#2D3748"/>
+            <text x="48" y="36" font-family="Inter,sans-serif" font-size="13" font-weight="700" fill="#2D3748">EDUCAÇÃO</text>
+            <text x="48" y="50" font-family="Inter,sans-serif" font-size="13" font-weight="600" fill="#4A5568" letter-spacing=".04em">AVANÇAR</text>
+          </svg>
+        </div>
+
+        <!-- TechBrasil -->
+        <div class="client-logo-item">
+          <svg viewBox="0 0 140 56" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="TechBrasil">
+            <rect x="4" y="14" width="34" height="24" rx="3" stroke="#4A5568" stroke-width="2"/>
+            <line x1="12" y1="20" x2="28" y2="20" stroke="#4A5568" stroke-width="1.5"/>
+            <line x1="12" y1="26" x2="24" y2="26" stroke="#718096" stroke-width="1.5"/>
+            <line x1="12" y1="32" x2="26" y2="32" stroke="#718096" stroke-width="1.5"/>
+            <text x="46" y="33" font-family="Inter,sans-serif" font-size="14" font-weight="800" fill="#2D3748">TECH<tspan font-weight="400" fill="#4A5568">BRASIL</tspan></text>
+          </svg>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ============================================================
+     CONTACT
+============================================================ -->
+<section class="contact" id="contato">
+  <div class="container">
+    <div class="contact-grid">
+
+      <!-- Esquerda: texto + WhatsApp -->
+      <div class="contact-info">
+        <span class="section-label section-label--lg">Contato</span>
+        <h2 class="section-title">Vamos conversar sobre o seu negócio?</h2>
+        <p>Fale com um especialista da Plenna sem compromisso. Analisamos o seu cenário e apresentamos a melhor solução.</p>
+
+        <div class="contact-details-row">
+          <div class="contact-details">
+            <a href="mailto:contato@plenna.com.br" class="contact-detail-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              contato@plenna.com.br
+            </a>
+            <a href="tel:+5500000000000" class="contact-detail-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.41 2 2 0 0 1 3.6 1.24h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.92a16 16 0 0 0 6 6l.97-.97a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              +55 (00) 0000-0000
+            </a>
+          </div>
+
+          <a href="https://wa.me/5500000000000" target="_blank" rel="noopener" class="contact-whatsapp">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/>
+            </svg>
+            <span class="contact-whatsapp-label">WhatsApp</span>
+            <span class="contact-whatsapp-cta">Falar agora</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Direita: formulário -->
+      <div class="contact-form-wrap">
+        <form class="contact-form" action="https://formsubmit.co/machadobraga2020@gmail.com" method="POST">
+          <!-- FormSubmit config -->
+          <input type="hidden" name="_subject" value="Novo contato via site Plenna" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_template" value="table" />
+          <input type="text" name="_honey" style="display:none" />
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="contact-name">Nome *</label>
+              <input type="text" id="contact-name" name="nome" placeholder="Seu nome" required />
+            </div>
+            <div class="form-group">
+              <label for="contact-company">Empresa</label>
+              <input type="text" id="contact-company" name="empresa" placeholder="Nome da empresa" />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="contact-email">E-mail *</label>
+              <input type="email" id="contact-email" name="email" placeholder="seu@email.com" required />
+            </div>
+            <div class="form-group">
+              <label for="contact-phone">Telefone</label>
+              <input type="tel" id="contact-phone" name="telefone" placeholder="(00) 00000-0000" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="contact-service">Área de interesse</label>
+            <select id="contact-service" name="servico">
+              <option value="" disabled selected>Selecione um serviço</option>
+              <option value="ERP TOTVS">ERP TOTVS</option>
+              <option value="Desenvolvimento Web">Desenvolvimento Web</option>
+              <option value="Infraestrutura de Redes">Infraestrutura de Redes</option>
+              <option value="Power BI & Analytics">Power BI & Analytics</option>
+              <option value="Helpdesk & Suporte">Helpdesk & Suporte</option>
+              <option value="Inteligência Artificial">Inteligência Artificial</option>
+              <option value="Outro">Outro</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="contact-message">Mensagem *</label>
+            <textarea id="contact-message" name="mensagem" rows="4" placeholder="Descreva brevemente o que você precisa..." required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary form-submit">
+            Enviar mensagem
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+============================================================ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="assets/plenna-header-svg-options/plenna-icon-plenna.svg" alt="Plenna Tecnologia" />
+        <p>Soluções completas de TI para empresas que precisam de tecnologia confiável e suporte especializado.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a href="#" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="#" aria-label="WhatsApp">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Serviços</h4>
+        <a href="servicos/totvs.html">TOTVS — Protheus, RM, Fluig</a>
+        <a href="servicos/desenvolvimento.html">Desenvolvimento Web</a>
+        <a href="servicos/infraestrutura.html">Infraestrutura de Redes</a>
+        <a href="servicos/powerbi.html">Power BI & Analytics</a>
+        <a href="servicos/helpdesk.html">Helpdesk & Suporte</a>
+        <a href="servicos/ia.html">Inteligência Artificial</a>
+      </div>
+
+      <div class="footer-col">
+        <h4>Empresa</h4>
+        <a href="empresa.html#sobre">Quem somos</a>
+        <a href="empresa.html#metodologia">Metodologia</a>
+        <a href="empresa.html#vagas">Trabalhe Conosco</a>
+        <a href="#depoimentos">Clientes</a>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contato</h4>
+        <a href="mailto:contato@plenna.com.br">contato@plenna.com.br</a>
+        <a href="tel:+5500000000000">+55 (00) 0000-0000</a>
+        <a href="#">Brasil</a>
+      </div>
+    </div>
+
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
+
+
