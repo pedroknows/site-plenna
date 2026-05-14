@@ -3,9 +3,27 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TOTVS — Protheus, RM & Fluig | Plenna Tecnologia</title>
-  <meta name="description" content="Implementação, consultoria e suporte especializado em Protheus, RM e Fluig. Integrações e desenvolvimento de APIs no ecossistema TOTVS." />
+  <title>Consultoria TOTVS e ADVPL | Plenna Tecnologia</title>
+  <meta name="description" content="Consultoria TOTVS para Protheus, RM e Fluig: implantação, parametrização, ADVPL/TLPP, integrações, APIs, treinamento e suporte." />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Plenna Tecnologia" />
+  <meta name="theme-color" content="#0A1628" />
+  <link rel="canonical" href="https://plenna.com.br/servicos/totvs.html" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Plenna Tecnologia" />
+  <meta property="og:title" content="Consultoria TOTVS e ADVPL | Plenna Tecnologia" />
+  <meta property="og:description" content="Especialistas em TOTVS Protheus, RM e Fluig para implantação, suporte, customização ADVPL/TLPP e integrações." />
+  <meta property="og:url" content="https://plenna.com.br/servicos/totvs.html" />
+  <meta property="og:image" content="https://plenna.com.br/images/servico-totvs.jpg" />
+  <meta property="og:image:alt" content="Consultoria TOTVS pela Plenna Tecnologia" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Consultoria TOTVS e ADVPL | Plenna Tecnologia" />
+  <meta name="twitter:description" content="Especialistas em TOTVS Protheus, RM e Fluig para implantação, suporte, customização ADVPL/TLPP e integrações." />
+  <meta name="twitter:image" content="https://plenna.com.br/images/servico-totvs.jpg" />
   <link rel="icon" type="image/x-icon" href="../public/favicon.ico" />
+  <link rel="manifest" href="../public/site.webmanifest" />
+  <link rel="apple-touch-icon" href="../public/apple-touch-icon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -173,7 +191,8 @@
     </div>
 
     <!-- PROTHEUS -->
-    <div class="tab-panel active" id="tab-protheus">
+    <div class="tab-panel active" id="protheus" data-tab-panel="protheus">
+      <span id="advpl" aria-hidden="true"></span>
       <div class="two-col">
         <div>
           <div class="product-pills">
@@ -203,7 +222,7 @@
     </div>
 
     <!-- RM -->
-    <div class="tab-panel" id="tab-rm">
+    <div class="tab-panel" id="rm" data-tab-panel="rm">
       <div class="two-col">
         <div>
           <div class="product-pills">
@@ -232,7 +251,7 @@
     </div>
 
     <!-- FLUIG -->
-    <div class="tab-panel" id="tab-fluig">
+    <div class="tab-panel" id="fluig" data-tab-panel="fluig">
       <div class="two-col">
         <div>
           <div class="product-pills">
@@ -260,7 +279,7 @@
     </div>
 
     <!-- INTEGRAÇÕES -->
-    <div class="tab-panel" id="tab-integracoes">
+    <div class="tab-panel" id="integracoes" data-tab-panel="integracoes">
       <div class="two-col">
         <div>
           <div class="product-pills">
@@ -419,18 +438,43 @@
   /* Tabs logic */
   const tabBtns   = document.querySelectorAll('.tab-btn');
   const tabPanels = document.querySelectorAll('.tab-panel');
+  const hashTabMap = {
+    protheus: 'protheus',
+    advpl: 'protheus',
+    rm: 'rm',
+    fluig: 'fluig',
+    integracoes: 'integracoes'
+  };
+
+  function activateTab(target, scrollTargetId) {
+    const activeBtn = document.querySelector(`.tab-btn[data-tab="${target}"]`);
+    const activePanel = document.querySelector(`.tab-panel[data-tab-panel="${target}"]`);
+    if (!activeBtn || !activePanel) return;
+
+    tabBtns.forEach(b => b.classList.remove('active'));
+    tabPanels.forEach(p => p.classList.remove('active'));
+
+    activeBtn.classList.add('active');
+    activePanel.classList.add('active');
+
+    if (scrollTargetId) {
+      const scrollTarget = document.getElementById(scrollTargetId) || activePanel;
+      requestAnimationFrame(() => scrollTarget.scrollIntoView({ block: 'start' }));
+    }
+  }
 
   tabBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const target = btn.dataset.tab;
-
-      tabBtns.forEach(b => b.classList.remove('active'));
-      tabPanels.forEach(p => p.classList.remove('active'));
-
-      btn.classList.add('active');
-      document.getElementById('tab-' + target).classList.add('active');
-    });
+    btn.addEventListener('click', () => activateTab(btn.dataset.tab));
   });
+
+  function activateTabFromHash() {
+    const hash = window.location.hash.slice(1);
+    const target = hashTabMap[hash];
+    if (target) activateTab(target, hash);
+  }
+
+  activateTabFromHash();
+  window.addEventListener('hashchange', activateTabFromHash);
 </script>
 </body>
 </html>
