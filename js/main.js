@@ -5,6 +5,57 @@
 document.addEventListener('DOMContentLoaded', () => {
 
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let trackingDebug = new URLSearchParams(window.location.search).has('debugTracking');
+  try {
+    trackingDebug = trackingDebug || window.localStorage?.getItem('plennaTrackingDebug') === 'true';
+  } catch (_) {}
+
+  window.dataLayer = window.dataLayer || [];
+
+  function getText(el) {
+    return (el?.textContent || '').replace(/\s+/g, ' ').trim();
+  }
+
+  function getSectionId(el) {
+    const section = el?.closest?.('section[id], header, footer');
+    if (!section) return 'unknown';
+    if (section.id) return section.id;
+    return section.tagName.toLowerCase();
+  }
+
+  function trackEvent(eventName, payload = {}) {
+    const eventPayload = {
+      event: eventName,
+      page_path: window.location.pathname,
+      page_title: document.title,
+      ...payload,
+    };
+
+    window.dataLayer.push(eventPayload);
+
+    if (typeof window.gtag === 'function') {
+      const { event, ...gtagPayload } = eventPayload;
+      window.gtag('event', event, gtagPayload);
+    }
+
+    if (trackingDebug) {
+      console.info('[Plenna tracking]', eventName, eventPayload);
+    }
+  }
+
+  function upsertHiddenField(form, name, value) {
+    if (!form || value == null || value === '') return;
+    let field = form.querySelector(`input[type="hidden"][name="${name}"]`);
+    if (!field) {
+      field = document.createElement('input');
+      field.type = 'hidden';
+      field.name = name;
+      form.appendChild(field);
+    }
+    field.value = value;
+  }
+
+  trackEvent('pln_page_view');
 
   /* --- Sticky Header --- */
   const header = document.querySelector('.site-header');
@@ -96,7 +147,7 @@ document.addEventListener('DOMContentLoaded', () => {
       'ERP TOTVS',
       'Infraestrutura',
       'Power BI',
-      'Desenvolvimento Web',
+      'Desenvolvimento & APIs',
       'Helpdesk',
       'Inteligência Artificial',
     ];
@@ -186,12 +237,183 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   serviceItems.forEach(item => {
-    item.addEventListener('click', () => activateService(item.dataset.service));
+    item.addEventListener('click', () => {
+      activateService(item.dataset.service);
+      trackEvent('pln_service_select', {
+        service: item.dataset.service,
+        source: 'services_list',
+        section: getSectionId(item),
+      });
+    });
   });
 
   /* --- Hero service links → activate correct panel --- */
   document.querySelectorAll('.hero-pill[data-service]').forEach(link => {
-    link.addEventListener('click', () => activateService(link.dataset.service));
+    link.addEventListener('click', () => {
+      activateService(link.dataset.service);
+      trackEvent('pln_service_select', {
+        service: link.dataset.service,
+        source: 'hero_pill',
+        cta_text: getText(link),
+        section: getSectionId(link),
+      });
+    });
+  });
+
+  document.querySelectorAll('[data-jump-service]').forEach(link => {
+    link.addEventListener('click', () => {
+      activateService(link.dataset.jumpService);
+      trackEvent('pln_service_select', {
+        service: link.dataset.jumpService,
+        source: 'jump_service',
+        cta_text: getText(link),
+        section: getSectionId(link),
+      });
+    });
+  });
+
+  /* --- Contact form prefill from CTAs --- */
+  const contactService = document.getElementById('contact-service');
+  const contactMessage = document.getElementById('contact-message');
+  const contactContext = document.getElementById('contact-context');
+  const defaultContactPrompt = 'Descreva brevemente o que você precisa, os sistemas envolvidos e a urgência.';
+  const contactPrompts = {
+    'Diagnóstico de TI': 'Conte qual gargalo mais impacta a operação hoje: ERP, rede, dados, integrações ou suporte.',
+    'ERP TOTVS': 'Conte qual módulo TOTVS está travando e se o problema envolve parametrização, customização ou integração.',
+    'Desenvolvimento & APIs': 'Conte quais sistemas precisam conversar e se a necessidade envolve API, job, portal ou automação.',
+    'Infraestrutura de Redes': 'Descreva o ambiente atual: servidores, firewall, VPN, backups e pontos de instabilidade percebidos.',
+    'Power BI & Analytics': 'Informe quais indicadores você precisa acompanhar e quais fontes de dados existem hoje.',
+    'Helpdesk & Suporte': 'Conte o volume de chamados, principais recorrências e se precisa de suporte remoto, presencial ou ambos.',
+    'Inteligência Artificial': 'Descreva onde a IA poderia ajudar: atendimento, análise de dados, automação ou produtividade interna.',
+    'Outro': defaultContactPrompt,
+  };
+
+  function setContactPrompt(service, customPrompt) {
+    const prompt = customPrompt || contactPrompts[service] || defaultContactPrompt;
+    if (contactMessage) contactMessage.placeholder = prompt;
+    if (contactContext) contactContext.textContent = prompt;
+  }
+
+  if (contactService) {
+    contactService.addEventListener('change', () => setContactPrompt(contactService.value));
+  }
+
+  document.querySelectorAll('[data-form-service]').forEach(link => {
+    link.addEventListener('click', () => {
+      const service = link.dataset.formService;
+      trackEvent('pln_cta_click', {
+        service,
+        cta_text: getText(link),
+        section: getSectionId(link),
+        target: link.getAttribute('href') || '',
+      });
+
+      if (contactService && service) {
+        contactService.value = service;
+        contactService.classList.add('form-highlight');
+        setTimeout(() => contactService.classList.remove('form-highlight'), 1600);
+      }
+
+      setContactPrompt(service, link.dataset.formPrompt);
+
+      if (contactMessage) {
+        contactMessage.classList.add('form-highlight');
+        setTimeout(() => contactMessage.classList.remove('form-highlight'), 1600);
+        setTimeout(() => contactMessage.focus({ preventScroll: true }), 450);
+      }
+    });
+  });
+
+  /* --- Interactive Diagnostic --- */
+  const diagnosticOptions = document.querySelectorAll('.diagnostic-option');
+  const diagnosticPanels  = document.querySelectorAll('.diagnostic-panel');
+  if (diagnosticOptions.length && diagnosticPanels.length) {
+    function activateDiagnostic(target) {
+      diagnosticOptions.forEach(option => {
+        const active = option.dataset.diagnostic === target;
+        option.classList.toggle('active', active);
+        option.setAttribute('aria-pressed', active ? 'true' : 'false');
+      });
+
+      diagnosticPanels.forEach(panel => {
+        panel.classList.toggle('active', panel.dataset.diagnosticPanel === target);
+      });
+    }
+
+    diagnosticOptions.forEach(option => {
+      option.addEventListener('click', () => {
+        activateDiagnostic(option.dataset.diagnostic);
+        trackEvent('pln_diagnostic_select', {
+          diagnostic: option.dataset.diagnostic,
+          source: 'diagnostic_option',
+          cta_text: getText(option),
+          section: getSectionId(option),
+        });
+      });
+    });
+
+    document.querySelectorAll('[data-diagnostic-target]').forEach(link => {
+      link.addEventListener('click', () => {
+        activateDiagnostic(link.dataset.diagnosticTarget);
+        trackEvent('pln_diagnostic_select', {
+          diagnostic: link.dataset.diagnosticTarget,
+          source: 'pain_card',
+          cta_text: getText(link),
+          section: getSectionId(link),
+        });
+      });
+    });
+  }
+
+  /* --- Conversion tracking --- */
+  document.querySelectorAll('a[href*="wa.me"]').forEach(link => {
+    link.addEventListener('click', () => {
+      trackEvent('pln_whatsapp_click', {
+        cta_text: getText(link),
+        section: getSectionId(link),
+        link_url: link.href,
+      });
+    });
+  });
+
+  document.querySelectorAll('a[href^="mailto:"]').forEach(link => {
+    link.addEventListener('click', () => {
+      trackEvent('pln_email_click', {
+        cta_text: getText(link),
+        section: getSectionId(link),
+        link_url: link.href,
+      });
+    });
+  });
+
+  document.querySelectorAll('a[href^="tel:"]').forEach(link => {
+    link.addEventListener('click', () => {
+      trackEvent('pln_phone_click', {
+        cta_text: getText(link),
+        section: getSectionId(link),
+        link_url: link.href,
+      });
+    });
+  });
+
+  document.querySelectorAll('.contact-form').forEach(form => {
+    form.addEventListener('submit', () => {
+      const params = new URLSearchParams(window.location.search);
+      ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'].forEach(name => {
+        upsertHiddenField(form, name, params.get(name));
+      });
+
+      upsertHiddenField(form, 'pagina_origem', window.location.href);
+      upsertHiddenField(form, 'titulo_pagina', document.title);
+      upsertHiddenField(form, 'referrer', document.referrer);
+
+      const service = form.querySelector('[name="servico"]')?.value || '';
+      trackEvent('pln_form_submit', {
+        form_name: 'contact_form',
+        service,
+        section: getSectionId(form),
+      });
+    });
   });
 
   /* --- About slideshow --- */
